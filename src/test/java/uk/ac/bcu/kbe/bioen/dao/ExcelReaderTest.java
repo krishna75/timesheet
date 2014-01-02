@@ -44,26 +44,24 @@ public class ExcelReaderTest {
 
     @Test
     public void testGetRowValues() throws Exception {
-        assertTrue(contains(reader.getRowValues(0, 4)
-                ,(Lists.newArrayList("Name", "Address", "Phone", "Email"))));
-        assertTrue(contains(reader.getRowValues(0, 5)
-                ,(Lists.newArrayList("Krishna Sapkota", "303 Hollow Way", "7.727682394E9", "ks_21285@hotmail.com"))));
+        assertTrue(contains(reader.getRowValues(0, 0)
+                ,(Lists.newArrayList("EmpID", "Employee Name", "DATE", "MODULE/COURSE TITLE"))));
+        assertTrue(contains(reader.getRowValues(0, 2)
+                ,(Lists.newArrayList("id112", "Mani", "KBE", "Sunday"))));
 
     }
 
     @Test
     public void testGetCellValue() throws IOException {
-        assertEquals("Name", reader.getCellValue(0, 5, 0));
-        assertEquals("Krishna Sapkota", reader.getCellValue(0, 6, 0));
+        assertEquals("id112", reader.getCellValue(0, 3, 0));
+        assertEquals("Mani", reader.getCellValue(0, 3, 1));
     }
 
 
     @Test
     public void testGetCellValueWithCellId() throws IOException {
-        assertEquals("Name", reader.getCellValueString(0, "a5"));
-        assertEquals("Krishna Sapkota", reader.getCellValueString(0, "a6"));
-        assertEquals("Email", reader.getCellValueString(0, "d5"));
-        assertEquals("ks_21285@hotmail.com", reader.getCellValueString(0, "d6"));
+        assertEquals("id112", reader.getCellValueString(0, "a3"));
+        assertEquals("Mani", reader.getCellValueString(0, "b3"));
     }
 
     /* Tests for setters */
