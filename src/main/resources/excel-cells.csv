@@ -1,0 +1,14 @@
+userId,0,0,string,input
+name,0,1,string,input
+date,0,2,number,input
+moduleTitle,0,3,string,input
+weekendDay,0,4,string,input
+weekendDate,0,5,number,input
+weekendMonth,0,6,string,input
+weekendYear,0,7,number,input
+startTime,0,8,number,input
+endTime,0,9,number,input
+breakTime,0,10,number,input
+activityDesc,0,11,string,input
+totalTime,0,12,number,input
+added,0,13,0,string,input
