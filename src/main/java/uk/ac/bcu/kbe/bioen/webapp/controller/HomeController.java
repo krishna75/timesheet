@@ -38,7 +38,7 @@ public class HomeController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String getBiogasCalculator(ModelMap model) {
         model.addAttribute("message", "Bio-Gas FIT Calculator");
-        return "index";
+        return "index2";
     }
 
     @RequestMapping(value = "/input-json", method = RequestMethod.POST)
