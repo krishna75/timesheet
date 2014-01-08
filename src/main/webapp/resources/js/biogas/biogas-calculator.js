@@ -39,6 +39,10 @@ var weekendMonth ="";
 var weekendYear  = 0;
 var date = "";
 var name = "" ;
+var supervisorName = "";
+var costCentre = "";
+var schoolName = "";
+var startDate = "";
 
 
 
@@ -111,7 +115,11 @@ function getInputJson(){
         new Map("weekendDate",parseInt(weekendDate)),
         new Map("weekendMonth",weekendMonth),
         new Map("weekendYear",parseInt(weekendYear)),
-        new Map("added",getDateTime())
+        new Map("added",getDateTime()),
+        new Map("supervisorName",supervisorName),
+        new Map("costCentre",costCentre),
+        new Map("schoolName",schoolName),
+        new Map("startDate",startDate)
     ];
 
     var json = '{';
@@ -143,44 +151,47 @@ function getMapValue(){ return  this.value;}
 /* updates the variables from the html elements */
 function updateDefaultValues(){
 
-userId  =  $("#userId").val();
-if (showLog) {console.log(" userId = "+ userId);}
-firstName  =  $("#firstName").val();
-if (showLog) {console.log(" firstName = "+ firstName);}
-lastName  =  $("#lastName").val();
-if (showLog) {console.log(" lastName = "+ lastName);}
+    userId  =  $("#userId").val();
+    firstName  =  $("#firstName").val();
+    lastName  =  $("#lastName").val();
+    moduleTitle    =  $("#moduleTitle").val();
+    activityDesc   =  $("#activityDesc").val();
+    startTime       =  $("#startTime").val();
+    endTime       =  $("#endTime").val();
+    breakTime      =  $("#breakTime").val();
+    totalTime      =  $("#totalTime").val();
+    weekendDay      =  $("#weekendDay").val();
+    weekendDate     =  $("#weekendDate").val();
+    weekendMonth     =  $("#weekendMonth").val();
+    weekendYear       =  $("#weekendYear").val();
+    supervisorName = $("#supervisorName").val();
+    costCentre = $("#costCentre").val();
+    schoolName = $("#schoolName").val();
+    startDate = $("#startDate").val();
+    name = firstName + " "+lastName;
+    date = dd +"/" +mm+"/" + yyyy;
 
-moduleTitle    =  $("#moduleTitle").val();
-   if (showLog) {console.log(" moduleTitle  = "+ moduleTitle);}
-activityDesc   =  $("#activityDesc").val();
-    if (showLog) {console.log(" activityDesc  = "+ activityDesc);}
-startTime       =  $("#startTime").val();
-     if (showLog) {console.log(" startTime  = "+ startTime);}
-endTime       =  $("#endTime").val();
-      if (showLog) {console.log(" endTime  = "+ endTime);}
-breakTime      =  $("#breakTime").val();
-       if (showLog) {console.log(" breakTime  = "+ breakTime);}
-totalTime      =  $("#totalTime").val();
-if (showLog) {console.log(" totalTime  = "+ totalTime);}
-weekendDay      =  $("#weekendDay").val();
-  if (showLog) {console.log(" weekendDay  = "+ weekendDay);}
-weekendDate     =  $("#weekendDate").val();
-   if (showLog) {console.log(" weekendDate  = "+ weekendDate);}
-weekendMonth     =  $("#weekendMonth").val();
-    if (showLog) {console.log(" weekendMonth  = "+ weekendMonth);}
-weekendYear       =  $("#weekendYear").val();
-     if (showLog) {console.log(" weekendYear  = "+ weekendYear);}
-
-name = firstName + " "+lastName;
-if (showLog) {console.log(" name  = "+ name);}
-
-
-
-
-
-date = dd +"/" +mm+"/" + yyyy;
-if (showLog) {console.log(" date  = "+ date);}
-
+    if (showLog) {
+        console.log(" userId = "+ userId);
+        console.log(" firstName = "+ firstName);
+        console.log(" lastName = "+ lastName);
+        console.log(" moduleTitle  = "+ moduleTitle);
+        console.log(" activityDesc  = "+ activityDesc);
+        console.log(" startTime  = "+ startTime);
+        console.log(" endTime  = "+ endTime);
+        console.log(" breakTime  = "+ breakTime);
+        console.log(" totalTime  = "+ totalTime);
+        console.log(" weekendDay  = "+ weekendDay);
+        console.log(" weekendDate  = "+ weekendDate);
+        console.log(" weekendMonth  = "+ weekendMonth);
+        console.log(" weekendYear  = "+ weekendYear);
+        console.log(" name  = "+ name);
+        console.log(" date  = "+ date);
+        console.log(" supervisorName  = "+ supervisorName);
+        console.log(" costCentre  = "+ costCentre);
+        console.log(" schoolName  = "+ schoolName);
+        console.log(" startDate  = "+ startDate);
+    }
 }
 
 
