@@ -11,4 +11,8 @@ endTime,0,9,number,input
 breakTime,0,10,number,input
 activityDesc,0,11,string,input
 totalTime,0,12,number,input
-added,0,13,0,string,input
+supervisorName,0,13,string,input
+costCentre,0,14,string,input
+schoolName,0,15,string,input
+startDate,0,16,string,input
+added,0,17,string,input

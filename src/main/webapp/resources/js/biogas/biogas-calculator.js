@@ -2,13 +2,20 @@ var showLog = true;
 
 //$("#totalTime").text(diff);
 
-$("#breakTime").change(function(){
+$("#startTime").change(function(){ computeTimes();});
+$("#endTime").change(function(){ computeTimes();});
+$("#breakTime").change(function(){ computeTimes();});
+
+function computeTimes(){
    var startTime = $("#startTime").val();
-   var endTime = $("#endTime").val();
-   var breakTime = $("#breakTime").val();
-   var result =  getTotalTime(startTime,endTime,breakTime);
-   $("#totalTime").val(result);
-});
+     var endTime = $("#endTime").val();
+     var breakTime = $("#breakTime").val();
+     var result =  getTotalTime(startTime,endTime,breakTime);
+     if (result == "NaN:NaN"){
+        result = "00:00";
+     }
+     $("#totalTime").val(result);
+}
 
 $("#date_1").change(function(){ updateEndingDates();});
 $("#date_2").change(function(){ updateEndingDates();});
@@ -21,7 +28,7 @@ $("#button").click(function(){ process();});
 
 /* Input variables */
 
-var userId ="krishna";
+var userId ="";
 var firstName  ="";
 var lastName  ="";
 var mm = 0;
@@ -107,10 +114,10 @@ function getInputJson(){
         new Map("moduleTitle",moduleTitle),
         new Map("activityDesc",activityDesc),
 
-        new Map("startTime",parseInt(startTime)),
-        new Map("endTime",parseInt(endTime)),
-        new Map("breakTime",parseInt(breakTime)),
-        new Map("totalTime",parseInt(totalTime)),
+        new Map("startTime",startTime),
+        new Map("endTime",endTime),
+        new Map("breakTime",breakTime),
+        new Map("totalTime",totalTime),
         new Map("weekendDay",weekendDay),
         new Map("weekendDate",parseInt(weekendDate)),
         new Map("weekendMonth",weekendMonth),
@@ -167,9 +174,9 @@ function updateDefaultValues(){
     supervisorName = $("#supervisorName").val();
     costCentre = $("#costCentre").val();
     schoolName = $("#schoolName").val();
-    startDate = $("#startDate").val();
     name = firstName + " "+lastName;
     date = dd +"/" +mm+"/" + yyyy;
+    startDate = $("#startDate_2").val() +"/" +$("#startDate_1").val()+"/" + $("#startDate_3").val();
 
     if (showLog) {
         console.log(" userId = "+ userId);

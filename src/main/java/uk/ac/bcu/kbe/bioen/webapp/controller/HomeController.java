@@ -1,21 +1,22 @@
 package uk.ac.bcu.kbe.bioen.webapp.controller;
 
+import org.apache.poi.util.IOUtils;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import uk.ac.bcu.kbe.bioen.Settings.LoggingMode;
 import uk.ac.bcu.kbe.bioen.Settings.Settings;
 import uk.ac.bcu.kbe.bioen.dao.ExcelReader;
 import uk.ac.bcu.kbe.bioen.dao.VarCellMappingsReader;
 import uk.ac.bcu.kbe.bioen.service.Manager;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * User: Krishna Sapkota
@@ -50,6 +51,20 @@ public class HomeController {
 //        String output = manager.getOutput();
 //        if (Settings.mode != LoggingMode.NONE){log.info("output: " + output);}
         return "";
+    }
+
+    @RequestMapping(value = "/timesheet.xlsx", method = RequestMethod.GET)
+    public void getFile( HttpServletResponse response) {
+        try {
+            // get your file as InputStream
+            InputStream is = new FileInputStream(excelFilename);
+            // copy it to response's OutputStream
+            IOUtils.copy(is, response.getOutputStream());
+            response.flushBuffer();
+        } catch (IOException ex) {
+            log.debug(ex.getMessage());
+        }
+
     }
 
 
